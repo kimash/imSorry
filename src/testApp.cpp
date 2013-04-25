@@ -28,7 +28,6 @@ void testApp::draw(){
     ofVec3f center = ofVec3f(ofGetWidth()/2, ofGetHeight()/2, 0);
     ofRectangle fboRectangle = ofRectangle(0,0,vidFbo.getWidth(), vidFbo.getHeight());
     
-    ofMesh mesh;
     mesh.addTexCoord(fboRectangle.getTopLeft());
     mesh.addVertex( center + ofVec3f(-fboRectangle.getWidth()/2, -fboRectangle.getHeight()/2, 0));
     mesh.addTexCoord(fboRectangle.getBottomLeft());
