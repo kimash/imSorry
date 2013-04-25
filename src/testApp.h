@@ -19,7 +19,7 @@ class testApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
-    ofVideoPlayer player;
+    ofVideoPlayer player;   //make array
     ofFbo vidFbo;
-    ofMesh mesh;
+    ofMesh mesh[3];
 };

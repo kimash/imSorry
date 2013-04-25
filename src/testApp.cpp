@@ -25,23 +25,24 @@ void testApp::draw(){
     player.draw(-player.getWidth()/4, 0);
     vidFbo.end();
     
-    ofVec3f center = ofVec3f(ofGetWidth()/2, ofGetHeight()/2, 0);
+    ofVec3f center = ofVec3f(ofGetWidth()/4, ofGetHeight()/2, 0);
     ofRectangle fboRectangle = ofRectangle(0,0,vidFbo.getWidth(), vidFbo.getHeight());
-    
-    mesh.addTexCoord(fboRectangle.getTopLeft());
-    mesh.addVertex( center + ofVec3f(-fboRectangle.getWidth()/2, -fboRectangle.getHeight()/2, 0));
-    mesh.addTexCoord(fboRectangle.getBottomLeft());
-    mesh.addVertex( center + ofVec3f(-fboRectangle.getWidth()/2, fboRectangle.getHeight()/2, 0));
-    mesh.addTexCoord(fboRectangle.getTopRight());
-    mesh.addVertex(center + ofVec3f(fboRectangle.getWidth()/2, -fboRectangle.getHeight()/2, 0));
-    mesh.addTexCoord(fboRectangle.getBottomRight());
-    mesh.addVertex(center + ofVec3f(fboRectangle.getWidth()/2, fboRectangle.getHeight()/2, 0));
-    mesh.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
-    
-    vidFbo.getTextureReference().bind();
-	mesh.draw();
-	vidFbo.getTextureReference().unbind();
-    
+    //mapping texture to mesh
+    for (int i = 0; i < 3; i++) {
+        mesh[i].addTexCoord(fboRectangle.getTopLeft());
+        mesh[i].addVertex(ofVec3f((i+0.5)*player.getWidth()/2, center.y, center.z) + ofVec3f(-fboRectangle.getWidth()/2, -fboRectangle.getHeight()/2, 0));
+        mesh[i].addTexCoord(fboRectangle.getBottomLeft());
+        mesh[i].addVertex(ofVec3f((i+0.5)*player.getWidth()/2, center.y, center.z) + ofVec3f(-fboRectangle.getWidth()/2, fboRectangle.getHeight()/2, 0));
+        mesh[i].addTexCoord(fboRectangle.getTopRight());
+        mesh[i].addVertex(ofVec3f((i+0.5)*player.getWidth()/2, center.y, center.z) + ofVec3f(fboRectangle.getWidth()/2, -fboRectangle.getHeight()/2, 0));
+        mesh[i].addTexCoord(fboRectangle.getBottomRight());
+        mesh[i].addVertex(ofVec3f((i+0.5)*player.getWidth()/2, center.y, center.z) + ofVec3f(fboRectangle.getWidth()/2, fboRectangle.getHeight()/2, 0));
+        mesh[i].setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
+        
+        vidFbo.getTextureReference().bind();
+        mesh[i].draw();
+        vidFbo.getTextureReference().unbind();
+    }
 }
 
 //--------------------------------------------------------------
