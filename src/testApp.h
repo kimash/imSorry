@@ -19,7 +19,7 @@ class testApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
-    ofVideoPlayer player;   //make array
-    ofFbo vidFbo;
-    ofMesh mesh[3];
+    ofVideoPlayer player[3];   //make array
+    ofFbo vidFbo;   //make 3x width - draw all videos into it
+    ofMesh mesh;//[3]; //change to one mesh?
 };
