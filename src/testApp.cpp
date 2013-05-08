@@ -2,6 +2,8 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
+    
+    ofHideCursor();
 //    if(!player.loadMovie("EPVAmjpg.mov"))   {
 //        ofLogError("Video failed to load!");
 //    }
