@@ -6,38 +6,59 @@ void testApp::setup(){
 //        ofLogError("Video failed to load!");
 //    }
 //    else    {
-    for (int i = 0; i < 3; i++) {
-        player[i].loadMovie("EPVAmjpg.mov");
+    for (int i = 0; i < 7; i++) {
+        for (int j = 0; j < 3; j++) {
+            player[i][j].loadMovie("EPVA_finalmjpg.mov");
+        }
     }
-    
-    ofEnableAlphaBlending();
+    ofBackground(0);
+    ofSetFullscreen(true);   
+//    ofEnableAlphaBlending();
     ofEnableSmoothing();
-    player[0].setFrame(141);
-    player[1].setFrame(171);
-    player[2].setFrame(187);
+    player[0][0].setFrame(1574);
+    player[0][1].setFrame(761);
+    player[0][2].setFrame(368);
+    player[1][0].setFrame(171);
+    player[1][1].setFrame(699);
+    player[1][2].setFrame(295);
+    player[2][0].setFrame(1165);
+    player[2][1].setFrame(1509);
+    player[2][2].setFrame(930);
+    player[3][0].setFrame(1233);
+    player[3][1].setFrame(512);
+    player[3][2].setFrame(230);
+    player[4][0].setFrame(406);
+    player[4][1].setFrame(467);
+    player[4][2].setFrame(811);
+    player[5][0].setFrame(419);
+    player[5][1].setFrame(141);
+    player[5][2].setFrame(993);
+    player[6][0].setFrame(368);
+    player[6][1].setFrame(1651);
+    player[6][2].setFrame(1311);
     
-    for (int i = 0; i < 3; i++) {
-        player[i].play();
+    for (int i = 0; i < 7; i++) {
+        for (int j = 0; j < 3; j++) {
+            player[i][j].play();
+        }
     }
-//    vidFbo.allocate(player[0].getWidth()*3, player[0].getHeight());
-//    }
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
-    for (int i = 0; i < 3; i++) {
-         player[i].update();
+    for (int i = 0; i < 7; i++) {
+        for (int j = 0; j < 3; j++) {
+            player[i][j].update();
+        }
     }
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
-//    vidFbo.begin();
-    //want subsection of video - get rid of black bars
-    for (int i = 0; i < 3; i++) {
-//        player[i].draw(-player[i].getWidth()/4, 0);
-        //player[i].draw((i+0.5)*player[i].getWidth()/2, 0);
-        player[i].draw(i*player[i].getWidth(), 0);
+    for (int i = 0; i < 7; i++) {
+        for (int j = 0; j < 3; j++) {
+            player[i][j].draw(i*200 + 25, j*300, 200, 300);
+        }
     }
 }
 
