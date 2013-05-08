@@ -19,21 +19,21 @@ void testApp::setup(){
     player[0][1].setFrame(761);
     player[0][2].setFrame(368);
     player[1][0].setFrame(171);
-    player[1][1].setFrame(699);
+    player[1][1].setFrame(419);
     player[1][2].setFrame(295);
-    player[2][0].setFrame(1165);
-    player[2][1].setFrame(1509);
+    player[2][0].setFrame(1509);
+    player[2][1].setFrame(1165);
     player[2][2].setFrame(930);
     player[3][0].setFrame(1233);
     player[3][1].setFrame(512);
-    player[3][2].setFrame(230);
+    player[3][2].setFrame(874);
     player[4][0].setFrame(406);
-    player[4][1].setFrame(467);
+    player[4][1].setFrame(230);
     player[4][2].setFrame(811);
-    player[5][0].setFrame(419);
+    player[5][0].setFrame(699);
     player[5][1].setFrame(141);
     player[5][2].setFrame(993);
-    player[6][0].setFrame(368);
+    player[6][0].setFrame(467);
     player[6][1].setFrame(1651);
     player[6][2].setFrame(1311);
     
